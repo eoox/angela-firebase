@@ -73,45 +73,54 @@ class _WelcomeScreenState extends State<WelcomeScreen>
             const SizedBox(
               height: 48.0,
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16.0),
-              child: Material(
-                elevation: 5.0,
-                color: Colors.lightBlueAccent,
-                borderRadius: BorderRadius.circular(30.0),
-                child: MaterialButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, LoginScreen.id);
-                    //Go to login screen.
-                  },
-                  minWidth: 200.0,
-                  height: 42.0,
-                  child: const Text(
-                    'Log In',
-                  ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16.0),
-              child: Material(
-                color: Colors.blueAccent,
-                borderRadius: BorderRadius.circular(30.0),
-                elevation: 5.0,
-                child: MaterialButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, RegistrationScreen.id);
-                    //Go to registration screen.
-                  },
-                  minWidth: 200.0,
-                  height: 42.0,
-                  child: const Text(
-                    'Register',
-                  ),
-                ),
-              ),
-            ),
+            MoveScreenButton(
+                btnColor: Colors.lightBlueAccent,
+                text: 'Log In',
+                callBack: () {
+                  Navigator.pushNamed(context, LoginScreen.id);
+                }),
+            MoveScreenButton(
+                btnColor: Colors.blueAccent,
+                text: 'Register',
+                callBack: () {
+                  Navigator.pushNamed(context, RegistrationScreen.id);
+                }),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class MoveScreenButton extends StatelessWidget {
+  final Color btnColor;
+  final Function callBack;
+  final String text;
+
+  const MoveScreenButton({
+    Key? key,
+    required this.btnColor,
+    required this.text,
+    required this.callBack,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 16.0),
+      child: Material(
+        elevation: 5.0,
+        color: btnColor,
+        borderRadius: BorderRadius.circular(30.0),
+        child: MaterialButton(
+          onPressed: () {
+            callBack();
+          },
+          minWidth: 200.0,
+          height: 42.0,
+          child: Text(
+            text,
+          ),
         ),
       ),
     );
