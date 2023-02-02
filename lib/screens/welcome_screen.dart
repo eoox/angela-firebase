@@ -39,7 +39,6 @@ class _WelcomeScreenState extends State<WelcomeScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.amber.withOpacity(controller.value),
       backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24.0),
@@ -52,7 +51,6 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                 Hero(
                   tag: 'App_logo',
                   child: SizedBox(
-                    // height: animation.value * 100,
                     height: 60.0,
                     child: Image.asset('images/logo.png'),
                   ),
@@ -70,15 +68,6 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                     ],
                   ),
                 ),
-
-                // const Text(
-                //   // '${controller.value.toInt()}%',
-                //   'Flash Chat',
-                //   style: TextStyle(
-                //     fontSize: 45.0,
-                //     fontWeight: FontWeight.w900,
-                //   ),
-                // ),
               ],
             ),
             const SizedBox(
