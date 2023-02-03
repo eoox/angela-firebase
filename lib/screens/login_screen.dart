@@ -33,19 +33,25 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 48.0,
             ),
             TextField(
+              keyboardType: TextInputType.emailAddress,
+              textAlign: TextAlign.center,
               onChanged: (value) {
                 //Do something with the user input.
               },
-              decoration: kTextFieldDecoration.copyWith(hintText: 'Enter your email'),
+              decoration:
+                  kTextFieldDecoration.copyWith(hintText: 'Enter your email'),
             ),
             const SizedBox(
               height: 8.0,
             ),
             TextField(
+                textAlign: TextAlign.center,
+                obscureText: true,
                 onChanged: (value) {
                   //Do something with the user input.
                 },
-                decoration: kTextFieldDecoration.copyWith(hintText: 'Enter your Password')),
+                decoration: kTextFieldDecoration.copyWith(
+                    hintText: 'Enter your Password')),
             const SizedBox(
               height: 24.0,
             ),
@@ -55,25 +61,6 @@ class _LoginScreenState extends State<LoginScreen> {
                 callBack: () {
                   Navigator.pop(context);
                 }),
-            // Padding(
-            //   padding: const EdgeInsets.symmetric(vertical: 16.0),
-            //   child: Material(
-            //     color: Colors.lightBlueAccent,
-            //     borderRadius: const BorderRadius.all(Radius.circular(30.0)),
-            //     elevation: 5.0,
-            //     child: MaterialButton(
-            //       onPressed: () {
-            //         //Implement login functionality.
-            //         Navigator.pop(context);
-            //       },
-            //       minWidth: 200.0,
-            //       height: 42.0,
-            //       child: const Text(
-            //         'Log In',
-            //       ),
-            //     ),
-            //   ),
-            // ),
           ],
         ),
       ),

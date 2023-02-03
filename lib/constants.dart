@@ -18,7 +18,6 @@ const kMessageContainerDecoration = BoxDecoration(
   ),
 );
 
-// const kTextFieldDecoration = InputDecoration().copyWith();
 //=====================================================================
 const kTextFieldDecoration = InputDecoration(
   hintText: 'Enter a value.',

@@ -1,6 +1,8 @@
 import 'package:angela_firebase/components/rounded_button.dart';
 import 'package:angela_firebase/constants.dart';
+import 'package:angela_firebase/screens/chat_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class RegistrationScreen extends StatefulWidget {
   static const id = 'RegistrationScreen';
@@ -12,6 +14,10 @@ class RegistrationScreen extends StatefulWidget {
 }
 
 class _RegistrationScreenState extends State<RegistrationScreen> {
+  final _auth = FirebaseAuth.instance;
+  late String email;
+  late String password;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,19 +39,27 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 48.0,
             ),
             TextField(
+              keyboardType: TextInputType.emailAddress,
+              textAlign: TextAlign.center,
               onChanged: (value) {
+                email = value;
                 //Do something with the user input.
               },
-              decoration: kTextFieldDecoration.copyWith(hintText: 'Enter your email'),
+              decoration:
+                  kTextFieldDecoration.copyWith(hintText: 'Enter your email'),
             ),
             const SizedBox(
               height: 8.0,
             ),
             TextField(
+              textAlign: TextAlign.center,
+              obscureText: true,
               onChanged: (value) {
+                password = value;
                 //Do something with the user input.
               },
-              decoration: kTextFieldDecoration.copyWith(hintText: 'Enter your password'),
+              decoration: kTextFieldDecoration.copyWith(
+                  hintText: 'Enter your password'),
             ),
             const SizedBox(
               height: 24.0,
@@ -53,8 +67,26 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             RoundedButton(
                 btnColor: Colors.blueAccent,
                 text: 'Register',
-                callBack: () {
+                callBack: () async {
                   Navigator.pop(context);
+                  try {
+                    final newUser = await _auth.createUserWithEmailAndPassword(
+                        email: email, password: password);
+                    Navigator.pushNamed(context, ChatScreen.id);
+                  } catch (e) {
+                    print(e);
+                  }
+                  // try {
+                  //   print('$email, $password');
+                  //   if (RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
+                  //           .hasMatch(email) ==
+                  //       false) {
+                  //     print('email type not matched');
+                  //   }
+                  // } catch (e) {
+                  //   print(e);
+                  //   //rethrow;
+                  // }
                 }),
           ],
         ),

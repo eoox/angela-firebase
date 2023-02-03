@@ -60,7 +60,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                   ),
                 ),
                 SizedBox(
-                  width: 300,
+                  width: 250,
                   child: AnimatedTextKit(
                     totalRepeatCount: 1,
                     animatedTexts: [
