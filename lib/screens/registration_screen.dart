@@ -75,7 +75,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     setState(() {
                       showSpinner = true;
                     });
-                    // Navigator.pop(context);
                     try {
                       final newUser =
                           await _auth.createUserWithEmailAndPassword(
@@ -87,18 +86,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     } catch (e) {
                       print(e);
                     }
-                    //=========================================================
-                    // try {
-                    //   print('$email, $password');
-                    //   if (RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
-                    //           .hasMatch(email) ==
-                    //       false) {
-                    //     print('email type not matched');
-                    //   }
-                    // } catch (e) {
-                    //   print(e);
-                    //   //rethrow;
-                    // }
                   }),
             ],
           ),

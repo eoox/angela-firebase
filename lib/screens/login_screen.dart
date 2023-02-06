@@ -16,7 +16,6 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final _auth = FirebaseAuth.instance;
-  // var loggedUser;
   bool showSpinner = false;
 
   late String email;
@@ -77,11 +76,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       setState(() {
                         showSpinner = true;
                       });
-                      // Navigator.pop(context);
                       var user = await _auth.signInWithEmailAndPassword(
                           email: email, password: password);
                       Navigator.pushNamed(context, ChatScreen.id);
-                      // print(test.credential);
                       setState(() {
                         showSpinner = false;
                       });

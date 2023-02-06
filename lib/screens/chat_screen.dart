@@ -1,6 +1,7 @@
 import 'package:angela_firebase/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ChatScreen extends StatefulWidget {
   static const id = 'ChatScreen';
@@ -10,7 +11,9 @@ class ChatScreen extends StatefulWidget {
 
 class _ChatScreenState extends State<ChatScreen> {
   final _auth = FirebaseAuth.instance;
-  var loggedUser;
+  final _db = FirebaseFirestore.instance;
+  late var loggedUser;
+  late String messageText;
 
   @override
   void initState() {
@@ -24,10 +27,17 @@ class _ChatScreenState extends State<ChatScreen> {
       final user = _auth.currentUser;
       if (user != null) {
         loggedUser = user;
-        print('User Login: ${loggedUser.email}');
       }
     } catch (e) {
-      print(e);
+      rethrow;
+    }
+    return null;
+  }
+
+  void getMessage() async {
+    final messages = await _db.collection('messages').get();
+    for (var msg in messages.docs) {
+      print(msg.data());
     }
   }
 
@@ -40,9 +50,10 @@ class _ChatScreenState extends State<ChatScreen> {
           IconButton(
               icon: const Icon(Icons.close),
               onPressed: () {
+                getMessage();
                 //Implement logout functionality
-                _auth.signOut();
-                Navigator.pop(context);
+                // _auth.signOut();
+                // Navigator.pop(context);
               }),
         ],
         title: const Text('⚡️Chat'),
@@ -62,13 +73,18 @@ class _ChatScreenState extends State<ChatScreen> {
                     child: TextField(
                       onChanged: (value) {
                         //Do something with the user input.
+                        messageText = value;
                       },
                       decoration: kMessageTextFieldDecoration,
                     ),
                   ),
-                  ElevatedButton(
+                  TextButton(
                     onPressed: () {
                       //Implement send functionality.
+                      print(
+                          '====  ${loggedUser.email} : message : $messageText ====');
+                      _db.collection("messages").add(
+                          {"sender": loggedUser.email, "text": messageText});
                     },
                     child: const Text(
                       'Send',
