@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "30595934253",
-    "project_id": "flash-chat-9875b",
-    "storage_bucket": "flash-chat-9875b.appspot.com"
+    "project_number": "343163594209",
+    "project_id": "auth-1e318",
+    "storage_bucket": "auth-1e318.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:30595934253:android:0e35949d8a0198a29530a4",
+        "mobilesdk_app_id": "1:343163594209:android:29954830a44b1c4e595ea0",
         "android_client_info": {
           "package_name": "com.eoox.angela_firebase"
         }
       },
       "oauth_client": [
         {
-          "client_id": "30595934253-63b56qkh8alclkne13ndee4oneemmaic.apps.googleusercontent.com",
+          "client_id": "343163594209-41pc3mt0ml9q43arl0cr7nhi8b50oa1m.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDKysuqbg3iKIfZHkkKBns7BROrOImKjBU"
+          "current_key": "AIzaSyB4gECJR9Cb2whKrcHeaZpW_gXbCnm9iS8"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "30595934253-63b56qkh8alclkne13ndee4oneemmaic.apps.googleusercontent.com",
+              "client_id": "343163594209-41pc3mt0ml9q43arl0cr7nhi8b50oa1m.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

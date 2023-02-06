@@ -1,6 +1,6 @@
 import 'package:angela_firebase/constants.dart';
-import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 
 class ChatScreen extends StatefulWidget {
   static const id = 'ChatScreen';
@@ -9,13 +9,25 @@ class ChatScreen extends StatefulWidget {
 }
 
 class _ChatScreenState extends State<ChatScreen> {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-  FirebaseAuth loggedUser;
+  final _auth = FirebaseAuth.instance;
+  var loggedUser;
+
+  @override
+  void initState() {
+    super.initState();
+
+    getCurrentUser();
+  }
 
   void getCurrentUser() async {
-    final user = _auth.currentUser;
-    if (user != null) {
-      loggedUser = user;
+    try {
+      final user = _auth.currentUser;
+      if (user != null) {
+        loggedUser = user;
+        print('User Login: ${loggedUser.email}');
+      }
+    } catch (e) {
+      print(e);
     }
   }
 
@@ -29,6 +41,8 @@ class _ChatScreenState extends State<ChatScreen> {
               icon: const Icon(Icons.close),
               onPressed: () {
                 //Implement logout functionality
+                _auth.signOut();
+                Navigator.pop(context);
               }),
         ],
         title: const Text('⚡️Chat'),

@@ -50,20 +50,20 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAd7i7w9j9mSfliMfQtPNgNuvF8qr0baNY',
-    appId: '1:30595934253:web:2882a8d73bc654a99530a4',
-    messagingSenderId: '30595934253',
-    projectId: 'flash-chat-9875b',
-    authDomain: 'flash-chat-9875b.firebaseapp.com',
-    storageBucket: 'flash-chat-9875b.appspot.com',
-    measurementId: 'G-RCQFRCG5J6',
+    apiKey: 'AIzaSyBUJhOAmKvYgdYS3ecr4EzBXaYa-XPOdOw',
+    appId: '1:343163594209:web:bf308bf101b0d3af595ea0',
+    messagingSenderId: '343163594209',
+    projectId: 'auth-1e318',
+    authDomain: 'auth-1e318.firebaseapp.com',
+    storageBucket: 'auth-1e318.appspot.com',
+    measurementId: 'G-Z9XKLZ80FR',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDKysuqbg3iKIfZHkkKBns7BROrOImKjBU',
-    appId: '1:30595934253:android:0e35949d8a0198a29530a4',
-    messagingSenderId: '30595934253',
-    projectId: 'flash-chat-9875b',
-    storageBucket: 'flash-chat-9875b.appspot.com',
+    apiKey: 'AIzaSyB4gECJR9Cb2whKrcHeaZpW_gXbCnm9iS8',
+    appId: '1:343163594209:android:29954830a44b1c4e595ea0',
+    messagingSenderId: '343163594209',
+    projectId: 'auth-1e318',
+    storageBucket: 'auth-1e318.appspot.com',
   );
 }
